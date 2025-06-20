@@ -48,13 +48,87 @@ a:hover {
     color: var(--secondary-color);
 }
 
+/* ナビゲーション */
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.nav-links li {
+    margin-left: 15px;
+    margin-bottom: 5px;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    padding: 8px 12px;
+    border-radius: 20px;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.highlight-nav {
+    color: var(--primary-color) !important;
+    font-weight: 700 !important;
+}
+
+.nav-cta {
+    background-color: var(--secondary-color);
+    color: var(--text-color) !important;
+    padding: 8px 15px !important;
+    border-radius: 20px;
+    font-weight: 700 !important;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-cta:hover {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+}
+
 /* ヘッダー・ヒーローセクション */
 .hero {
     background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('images/hero-bg.jpg');
     background-size: cover;
     background-position: center;
-    padding: 100px 0;
+    padding: 150px 0 100px;
     text-align: center;
+    position: relative;
 }
 
 .main-title {
@@ -595,6 +669,136 @@ section {
     color: var(--text-color);
     opacity: 0.8;
     margin-bottom: 20px;
+}
+
+/* レッスンプラン */
+.lesson-plans {
+    background-color: var(--light-bg);
+    padding: 80px 0;
+}
+
+.plans-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.plan-card {
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 100%;
+    max-width: 500px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.plan-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.plan-header {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 25px 20px;
+    text-align: center;
+}
+
+.plan-title {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.plan-price {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+}
+
+.price {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.currency {
+    font-size: 1.2rem;
+    margin-left: 5px;
+}
+
+.period {
+    font-size: 1rem;
+    opacity: 0.8;
+    margin-left: 5px;
+}
+
+.plan-features {
+    padding: 30px;
+}
+
+.plan-features h4 {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.plan-features ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.plan-features li {
+    margin-bottom: 20px;
+    padding-left: 10px;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+}
+
+.feature-icon {
+    color: var(--primary-color);
+    font-weight: bold;
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+.plan-features li strong {
+    color: var(--text-color);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.plan-action {
+    padding: 20px 30px 30px;
+    text-align: center;
+}
+
+.subscribe-button {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    font-weight: 700;
+    padding: 15px 40px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(249, 200, 70, 0.3);
+}
+
+.subscribe-button:hover {
+    background-color: #f0bc2c;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(249, 200, 70, 0.4);
+}
+
+.plan-note {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0.9rem;
+    color: var(--text-color);
+    opacity: 0.8;
 }
 
 /* お申し込み */
