@@ -1,10 +1,10 @@
 /* 基本スタイル */
 :root {
-    --primary-color: #7fb069;
-    --secondary-color: #f9c846;
-    --accent-color: #e6a4b4;
-    --text-color: #333;
-    --light-bg: #f8f9fa;
+    --primary-color: #ff9bb3;
+    --secondary-color: #ffd1dc;
+    --accent-color: #fff5e6;
+    --text-color: #5a4a42;
+    --light-bg: #fff9f0;
     --white: #ffffff;
 }
 
@@ -19,6 +19,7 @@ body {
     color: var(--text-color);
     line-height: 1.6;
     background-color: var(--light-bg);
+    letter-spacing: 0.5px;
 }
 
 .container {
@@ -91,10 +92,27 @@ a:hover {
     color: var(--text-color);
     text-decoration: none;
     font-weight: 500;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     transition: all 0.3s ease;
     padding: 8px 12px;
     border-radius: 20px;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 70%;
 }
 
 .nav-links a:hover {
@@ -123,18 +141,24 @@ a:hover {
 
 /* ヘッダー・ヒーローセクション */
 .hero {
-    background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('images/hero-bg.jpg');
+    background: linear-gradient(rgba(255, 249, 240, 0.9), rgba(255, 249, 240, 0.9)), url('images/hero-bg.jpg');
     background-size: cover;
     background-position: center;
     padding: 150px 0 100px;
     text-align: center;
     position: relative;
+    border-bottom: 3px solid var(--secondary-color);
 }
 
 .main-title {
     font-size: 2.5rem;
     color: var(--primary-color);
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    line-height: 1.2;
+    font-family: 'Playfair Display', 'M PLUS Rounded 1c', serif;
+    text-shadow: 1px 1px 2px rgba(255, 155, 179, 0.2);
 }
 
 .sub-title {
@@ -146,21 +170,41 @@ a:hover {
 
 .cta-button {
     display: inline-block;
-    background-color: var(--secondary-color);
-    color: var(--text-color);
+    background-color: var(--primary-color);
+    color: var(--white);
     padding: 15px 30px;
     border-radius: 50px;
     font-size: 1.2rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(255, 155, 179, 0.3);
     transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: var(--secondary-color);
+    transition: all 0.4s ease;
+    z-index: -1;
+    opacity: 0.8;
+}
+
+.cta-button:hover::before {
+    left: 0;
 }
 
 .cta-button:hover {
-    background-color: var(--primary-color);
-    color: var(--white);
+    background-color: var(--secondary-color);
+    color: var(--text-color);
     transform: translateY(-3px);
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
@@ -175,6 +219,22 @@ section {
     font-size: 2rem;
     color: var(--primary-color);
     margin-bottom: 3rem;
+    font-family: 'Playfair Display', 'M PLUS Rounded 1c', serif;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--secondary-color);
+    border-radius: 2px;
 }
 
 .section-subtitle {
@@ -224,13 +284,26 @@ section {
 
 .problem-item {
     flex: 0 0 calc(33.333% - 30px);
-    background-color: var(--light-bg);
-    border-radius: 10px;
+    background-color: var(--white);
+    border-radius: 15px;
     padding: 30px;
     margin-bottom: 30px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     text-align: center;
     transition: all 0.3s ease;
+    border: 2px solid var(--secondary-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.problem-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: var(--primary-color);
 }
 
 .problem-item:hover {
@@ -242,7 +315,7 @@ section {
     width: 80px;
     height: 80px;
     margin: 0 auto 20px;
-    background-color: rgba(127, 176, 105, 0.1);
+    background-color: rgba(248, 183, 201, 0.2);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -255,9 +328,24 @@ section {
 }
 
 .problem-item h3 {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     margin-bottom: 15px;
     color: var(--primary-color);
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 8px;
+}
+
+.problem-item h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background-color: var(--secondary-color);
 }
 
 /* ベネフィットセクション */
@@ -311,10 +399,11 @@ section {
 .quiz-container {
     max-width: 700px;
     margin: 0 auto;
-    background-color: var(--light-bg);
+    background-color: var(--white);
     border-radius: 20px;
     padding: 40px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 25px rgba(255, 155, 179, 0.15);
+    border: 2px solid var(--secondary-color);
 }
 
 .quiz-start {
@@ -337,8 +426,8 @@ section {
 }
 
 .quiz-button {
-    background-color: var(--secondary-color);
-    color: var(--text-color);
+    background-color: var(--primary-color);
+    color: var(--white);
     border: none;
     padding: 15px 30px;
     border-radius: 50px;
@@ -346,13 +435,33 @@ section {
     font-weight: 700;
     cursor: pointer;
     margin-top: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(255, 155, 179, 0.3);
     transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.quiz-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: var(--secondary-color);
+    transition: all 0.4s ease;
+    z-index: -1;
+    opacity: 0.8;
+}
+
+.quiz-button:hover::before {
+    left: 0;
 }
 
 .quiz-button:hover {
-    background-color: var(--primary-color);
-    color: var(--white);
+    background-color: var(--secondary-color);
+    color: var(--text-color);
     transform: translateY(-3px);
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }

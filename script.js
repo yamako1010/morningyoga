@@ -145,19 +145,19 @@ function startQuiz() {
             resultType = "タイプA";
             resultTitle = "心身SOS！溜め込みがちな休息必須タイプ";
             resultDescription = "毎日の忙しさで心も体も悲鳴をあげているようです。肩や首の凝りがひどく、ストレスも溜まりがち。自分のための時間を作ることが難しく、常に時間に追われている状態かもしれません。";
-            resultImage = "images/type-a.jpg";
+            resultImage = "images/type-a.png";
             yogaRecommendation = "やまこヨガでは、特に「体が硬くてもOK」な優しいポーズと、「イライラ解消」に効果的な呼吸法を中心に行います。カメラオフでリラックスしながら参加できるので、自分だけの安心空間で心と体をリセットできますよ。";
         } else if (bCount >= 3) {
             resultType = "タイプB";
             resultTitle = "あと一歩でスッキリ！バランス重視タイプ";
             resultDescription = "日々の生活の中で、ある程度は自分の時間を作れていますが、完全にリラックスできているわけではないようです。時々体の凝りを感じたり、ストレスを抱えることもあるかもしれません。";
-            resultImage = "images/type-b.jpg";
+            resultImage = "images/type-b.png";
             yogaRecommendation = "やまこヨガでは、「ご機嫌な私へ」導くポーズと呼吸法で、あなたの日常にさらなる余裕と活力をプラスします。継続的な習慣づくりをサポートし、より良いバランスを見つける手助けをします。";
         } else {
             resultType = "タイプC";
-            resultTitle = "バランス良好！維持向上タイプ";
+            resultTitle = "心身良好！さらに輝くウェルネスタイプ";
             resultDescription = "心身ともにバランスが取れている状態です。日々の生活の中で自分の時間を確保し、ストレスも上手に管理できているようです。これからも良い状態を維持したいですね。";
-            resultImage = "images/type-c.jpg";
+            resultImage = "images/type-c.png";
             yogaRecommendation = "やまこヨガでは、あなたの良好な状態をさらに向上させるポーズと呼吸法で、より深いリラクゼーションと自己成長をサポートします。すでに良い習慣をお持ちの方も、新たな気づきと発見があるはずです。";
         }
         
@@ -190,10 +190,29 @@ function startQuiz() {
         
         // もう一度診断するボタンのイベントリスナー
         document.getElementById('retake-quiz').addEventListener('click', function() {
+            // 変数をリセット
             currentQuestion = 0;
             answers = [];
-            document.getElementById('quiz-start').style.display = 'block';
+            
+            // 診断結果を非表示にして、診断スタート画面を表示
             quizContainer.innerHTML = '';
+            
+            // 診断スタート画面を再表示
+            const quizStartHTML = `
+                <div id="quiz-start" class="quiz-start">
+                    <div class="quiz-start-image">
+                        <img src="images/quiz-icon.svg" alt="診断スタート">
+                    </div>
+                    <h3>あなたの心と体の状態をチェック</h3>
+                    <p>忙しい毎日の中で、あなたの心と体はどんな状態ですか？<br>簡単な質問に答えて、あなたにぴったりの朝ヨガの取り入れ方を見つけましょう。</p>
+                    <button id="start-quiz" class="quiz-button">診断スタート</button>
+                </div>
+            `;
+            
+            quizContainer.innerHTML = quizStartHTML;
+            
+            // 診断スタートボタンにイベントリスナーを再設定
+            document.getElementById('start-quiz').addEventListener('click', startQuiz);
         });
     }
 }
