@@ -156,19 +156,19 @@ function initYogaQuiz() {
         if (countA >= countB && countA >= countC) {
             resultType = "A";
             resultTitle = "心身SOS！溜め込みがちな休息必須タイプ";
-            resultImage = "Photo/Gemini_Generated_Image_avv5j1avv5j1avv5.png";
+            resultImage = "Photo/testimonial.png";
             resultDescription = "毎日の忙しさに追われ、心も体も悲鳴をあげているようです。肩や首の凝りがひどく、ストレスも溜まりがち。自分のための時間を作ることが難しく、常に時間に追われている状態かもしれません。";
             resultAdvice = "今すぐ心と体をリセットする時間が必要です。朝ヨガで一日の始まりに自分と向き合う習慣をつけることで、少しずつ心身のバランスを取り戻していきましょう。特に「体が硬くてもOK」な朝ヨガは、あなたの体の状態に合わせて無理なく始められます。";
         } else if (countB >= countA && countB >= countC) {
             resultType = "B";
             resultTitle = "あと一歩でスッキリ！バランス重視タイプ";
-            resultImage = "Photo/Gemini_Generated_Image_hdtvf0hdtvf0hdtv.png";
+            resultImage = "Photo/Gemini_Generated_Image_hdtvf1hdtvf1hdtv.png";
             resultDescription = "生活のバランスを取ろうと努力していますが、まだ完全には心身の調和が取れていないようです。時々体の凝りを感じたり、ストレスを感じることもありますが、自分なりの対処法を持っています。";
             resultAdvice = "あと少しの習慣化で、もっと心地よい毎日を手に入れられます。朝ヨガの「カメラオフでOK」な環境は、忙しいあなたにぴったり。自分のペースで続けられる朝の習慣として、心と体のバランスをさらに整えていきましょう。";
         } else {
             resultType = "C";
             resultTitle = "心身良好！さらに輝くウェルネスタイプ";
-            resultImage = "Photo/Gemini_Generated_Image_hdtvf1hdtvf1hdtv.png";
+            resultImage = "Photo/Gemini_Generated_Image_hdtvf0hdtvf0hdtv.png";
             resultDescription = "すでに心身のバランスが取れていて、自分の時間も大切にできているようです。定期的な運動習慣があり、ストレス管理もうまくできています。";
             resultAdvice = "さらに質の高いウェルネスライフを目指しましょう。朝ヨガの「ご機嫌な私へ」のコンセプトは、すでに良好な状態のあなたをさらに輝かせてくれるでしょう。朝の静かな時間に自分と向き合うことで、より深い自己理解と充実感を得られます。";
         }
