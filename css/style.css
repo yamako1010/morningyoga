@@ -111,7 +111,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, rgba(255, 209, 220, 0.8), rgba(255, 238, 242, 0.8));
+    background: linear-gradient(to bottom, rgba(255, 209, 220, 0.9), rgba(255, 238, 242, 0.9));
     z-index: 1;
 }
 
@@ -156,28 +156,115 @@ section {
 
 /* イントロセクション */
 .intro {
-    background-color: var(--light-pink);
     padding: 60px 0;
+    background-color: white;
+}
+
+.intro-card {
+    background-color: var(--cream);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    padding: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.intro-header {
     text-align: center;
+    margin-bottom: 25px;
 }
 
-.intro-text {
-    font-size: 1.4rem;
-    font-weight: 500;
-    margin-bottom: 30px;
+.intro-header h2 {
+    font-size: 1.8rem;
     color: var(--accent-color);
+    margin: 0;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
 }
 
-.intro p {
-    margin-bottom: 20px;
+.intro-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--accent-color);
+}
+
+.intro-content {
+    padding: 10px;
+}
+
+.intro-point {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 12px 15px;
+    border-left: 3px solid var(--accent-color);
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s ease;
+}
+
+.intro-point:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+}
+
+.intro-point i {
+    color: var(--accent-color);
+    font-size: 1rem;
+    margin-right: 15px;
+}
+
+.intro-point p {
+    margin: 0;
     font-size: 1.1rem;
 }
 
-.highlight {
-    font-weight: 500;
-    color: var(--accent-color);
+.intro-message {
+    padding: 15px;
+    margin: 25px 0;
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #666;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.intro-highlight {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
     font-size: 1.2rem;
-    margin-top: 30px;
+    line-height: 1.8;
+    margin-top: 20px;
+    border-left: 4px solid var(--accent-color);
+}
+
+.intro-highlight span {
+    font-weight: bold;
+    color: var(--accent-color);
+    font-size: 1.3rem;
+    padding: 0 3px;
+    position: relative;
+}
+
+.intro-highlight span::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: rgba(255, 105, 180, 0.2);
+    z-index: -1;
 }
 
 /* ボタン */
@@ -235,19 +322,15 @@ section {
 }
 
 .problem-icon {
-    width: 80px;
-    height: 80px;
     margin: 0 auto 20px;
-    background-color: var(--light-pink);
-    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .problem-icon img {
-    width: 40px;
-    height: 40px;
+    width: 80px;
+    height: 80px;
 }
 
 .problem-item h3 {
@@ -358,10 +441,48 @@ section {
     text-align: center;
 }
 
+.quiz-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.quiz-card:hover {
+    transform: translateY(-5px);
+}
+
 .quiz-image {
-    max-width: 300px;
+    max-width: 180px;
     border-radius: 10px;
-    margin-bottom: 30px;
+    transition: transform 0.3s ease;
+}
+
+.quiz-card:hover .quiz-image {
+    transform: scale(1.05);
+}
+
+.quiz-card .btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1rem;
+    padding: 15px 30px;
+    background: linear-gradient(45deg, var(--accent-color), #ff8fab);
+    border: none;
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+}
+
+.quiz-card .btn:hover {
+    background: linear-gradient(45deg, #ff8fab, var(--accent-color));
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.4);
 }
 
 .quiz-question {

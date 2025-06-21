@@ -55,19 +55,36 @@
             list-style: none;
             padding: 0;
             margin: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
         }
         
         .benefit-list li {
-            padding: 10px 0 10px 30px;
+            padding: 12px 15px 12px 40px;
             position: relative;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            width: calc(50% - 10px);
+            margin: 0;
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
+        
+        .benefit-list li:hover {
+            transform: translateY(-3px);
         }
         
         .benefit-list li:before {
-            content: '✓';
+            content: '\f00c';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
             position: absolute;
-            left: 0;
+            left: 15px;
             color: var(--accent-color);
-            font-weight: bold;
+            font-size: 1rem;
         }
         
         .highlight-box {
@@ -117,19 +134,81 @@
             margin: 15px auto;
             max-width: 90%;
             background-color: #fff8f9;
-            padding: 15px;
+            padding: 20px;
             border-radius: 10px;
             border: 2px dashed var(--accent-color);
         }
         
         .price-benefits p {
-            margin: 8px 0;
+            margin: 12px 0;
             font-size: 1.1rem;
+            position: relative;
+            padding-left: 28px;
+            text-align: left;
         }
         
         .price-benefits p strong {
             color: var(--accent-color);
             font-size: 1.2rem;
+            display: block;
+            text-align: center;
+            padding-left: 0;
+            margin-bottom: 15px;
+        }
+        
+        .price-benefits p:not(:first-child) {
+            padding-left: 0;
+        }
+        
+        .lesson-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .lesson-item {
+            display: flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 12px 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        
+        .lesson-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .lesson-text {
+            text-align: left;
+        }
+        
+        .lesson-text strong {
+            display: block;
+            color: var(--accent-color);
+            margin-bottom: 3px;
+            font-size: 1.1rem;
+        }
+        
+        .lesson-note {
+            margin-top: 15px;
+            font-style: italic;
+            color: #666;
+        }
+        
+        .lesson-note i {
+            color: var(--accent-color);
+            margin-right: 5px;
         }
     </style>
 </head>
@@ -139,7 +218,7 @@
             <div class="logo">Morning Yoga</div>
             <ul class="menu-items">
                 <li><a href="index.html">ホーム</a></li>
-                <li><a href="morning-yoga-details.html">朝ヨガ詳細</a></li>
+                <li><a href="morning-yoga-details.html">レッスン内容</a></li>
                 <li><a href="index.html#instructor">講師紹介</a></li>
                 <li><a href="index.html#faq">よくある質問</a></li>
                 <li><a href="morning-yoga-details.html" class="btn-small">無料体験</a></li>
@@ -160,16 +239,33 @@
                 <div class="detail-content">
                     <div class="detail-box">
                         <h3>レッスン内容</h3>
-                        <ul>
-                            <li><strong>朝ヨガ：</strong>毎週土曜日 朝6:45〜7:15（30分）</li>
-                            <li><strong>夜ヨガ：</strong>不定期開催（30分）</li>
-                            <li><strong>レッスンアーカイブ：</strong>限定公開</li>
-                        </ul>
-                        <p>★ご自身のタイミングでレッスンを受けられます</p>
+                        <div class="lesson-list">
+                            <div class="lesson-item">
+                                <div class="lesson-icon"><i class="fas fa-sun"></i></div>
+                                <div class="lesson-text">
+                                    <strong>朝ヨガ</strong>
+                                    <span>毎週土曜日 朝6:45〜7:15（30分）</span>
+                                </div>
+                            </div>
+                            <div class="lesson-item">
+                                <div class="lesson-icon"><i class="fas fa-moon"></i></div>
+                                <div class="lesson-text">
+                                    <strong>夜ヨガ</strong>
+                                    <span>不定期開催（30分）</span>
+                                </div>
+                            </div>
+                            <div class="lesson-item">
+                                <div class="lesson-icon"><i class="fas fa-play-circle"></i></div>
+                                <div class="lesson-text">
+                                    <strong>レッスンアーカイブプレゼント</strong>
+                                    <span>限定公開</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="lesson-note"><i class="fas fa-check-circle"></i> ご自身のタイミングでレッスンを受けられます</p>
                         <div class="price-tag">月額たった2,500円！</div>
                         <div class="price-benefits">
                             <p><strong>このお得な料金ですべて含まれます！</strong></p>
-                            <p>★ 月に4回参加すれば、1回あたり約500円とお得！</p>
                             <p>★ カフェでのコーヒー1杯分より安く、心と体の健康に投資できます</p>
                             <p>★ ジムやフィットネスクラブの月額の約10分の1の価格で、専門家のレッスンが受けられます</p>
                         </div>
